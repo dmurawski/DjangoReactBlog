@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 
-from .models import CustomUser
+from .models import Blog, CustomUser
 
 
 class CustomUserAdmin(UserAdmin):
@@ -9,3 +9,10 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(CustomUser, CustomUserAdmin)
+
+
+class BlogAdmin(admin.ModelAdmin):
+    list_display = ("title", "is_draft", "created_at", "category")
+
+
+admin.site.register(Blog, BlogAdmin)
