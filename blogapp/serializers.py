@@ -4,6 +4,23 @@ from rest_framework import serializers
 from .models import Blog
 
 
+class UpdateUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = (
+            "id",
+            "email",
+            "username",
+            "first_name",
+            "last_name",
+            "bio",
+            "profile_picture",
+            "youtube",
+            "instagram",
+            "facebook",
+        )
+
+
 class UserRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = get_user_model()
